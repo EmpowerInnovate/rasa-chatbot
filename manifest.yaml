@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rasa-depl
+  labels:
+    app: rasa
+spec:
+  selector:
+    matchLabels:
+      app: rasa
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: rasa
+    spec:
+      containers:
+        - name: rasa
+          image: piyush9090/rasa:piyush
+          imagePullPolicy: Always
+          ports:
