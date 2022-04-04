@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN rasa train 
+RUN rasa train nlu
 
 # set the user to run, don't run as root
 USER 1001
