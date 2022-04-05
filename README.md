@@ -38,16 +38,37 @@ rasa init
 => Now we will build the docker image with this command
 
 ```
-docker build -t piyush9090/rasa:piyush .
+docker build -t piyush9090/rasa:empowerinnovate .
 ```
 
 * It will take some time to build the big image.
 
 => Now you run the docker image on 8080 port.
 
+```
+docker run -it -p 8081:8081 piyush9090/rasa:empowerinnovate
+```
+
+Now you can go to port localhost:8081 you will get rasa page 
+
+But when you run the shell then it is showing result like this
+
+![with nlu](/Doc-Screenshots/rasa-docker-shell-output.png)
 
 
+Now if you want to run in Cloud(GKE,Digital ocean) Then first you have to push the docker image after creating docker container.
 
+Then you can apply manifest-deployment-svc.yaml with this command
 
+```
+kubectl apply -f manifest-deployment-svc.yaml
+```
 
-gcloud container clusters create rasa-chatbot --num-nodes=2 --zone=us-east1-c
+We can check all stuff of k8s with this command
+
+```
+kubectl get all
+```
+
+I'm not getting anything after this.
+
